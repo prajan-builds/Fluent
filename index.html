@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fluent – English Speaking Coach</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1b2a41;--mute:#5d6b7e;--line:#e1e5eb;--pri:#1f3a5f;--pi:#fff;--acc:#b8862f;--ok:#2e7d5b;--bad:#b3412f;--mid:#9a6b0c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161d;--card:#1a212b;--ink:#e8ecf2;--mute:#9aa6b6;--line:#2b3442;--pri:#8db0e0;--pi:#0f1722;--acc:#d6a84e;--ok:#63bf92;--bad:#ea917e;--mid:#d6a84e}}
+:root[data-theme="dark"]{--bg:#12161d;--card:#1a212b;--ink:#e8ecf2;--mute:#9aa6b6;--line:#2b3442;--pri:#8db0e0;--pi:#0f1722;--acc:#d6a84e;--ok:#63bf92;--bad:#ea917e;--mid:#d6a84e}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:560px;margin:0 auto;padding:0 18px 170px}
+header{padding:18px 0 4px;font:700 22px Lora,Georgia,serif;color:var(--pri);letter-spacing:.2px}
+h1{font:700 26px/1.2 Lora,Georgia,serif;margin:14px 0 6px}
+h2{font:700 17px Lora,Georgia,serif;margin:26px 0 8px}
+.sub{color:var(--mute);margin:0 0 16px}
+small{display:block;color:var(--mute);font-size:13px}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.list{border-top:1px solid var(--line)}
+.row{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:14px 2px}
+.row i{font-style:normal;color:var(--mute);font-size:22px}
+.btn{display:inline-block;background:var(--pri);color:var(--pi);border:0;border-radius:10px;padding:11px 16px;font-weight:600;text-decoration:none}
+.ghostb{background:none;color:var(--bad);border:1px solid var(--line)}
+.ghost{background:none;border:0;color:var(--pri);padding:6px 0;font-weight:600}
+details{border-bottom:1px solid var(--line);padding:12px 2px}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0}
+.mis{padding:8px 0;border-top:1px dashed var(--line)}
+.mis s{color:var(--bad)}.mis b{color:var(--ok)}
+.top{display:flex;gap:12px;align-items:center;padding:8px 0 12px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.b{max-width:88%;padding:10px 13px;margin:8px 0;border-radius:14px}
+.b.c{background:var(--card);border:1px solid var(--line);border-bottom-left-radius:4px}
+.b.u{background:var(--pri);color:var(--pi);margin-left:auto;border-bottom-right-radius:4px}
+.sp{background:none;border:0;color:var(--pri);vertical-align:middle;padding:2px 6px}
+.fb{border-left:3px solid var(--acc);padding:2px 0 2px 12px;margin:6px 0 16px}
+.sc{font:700 22px Lora,Georgia,serif}.sc small{display:inline;font:13px system-ui}
+.sc.g{color:var(--ok)}.sc.m{color:var(--mid)}.sc.w{color:var(--bad)}
+.cor{margin:4px 0}.cor span{color:var(--mute)}
+.tip{margin:8px 0 0;color:var(--mute);font-style:italic}
+.bar{position:fixed;left:50%;transform:translateX(-50%);width:100%;max-width:560px;bottom:calc(54px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;padding:10px 14px;background:var(--bg);border-top:1px solid var(--line)}
+.bar input{flex:1;min-width:0;font:inherit;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+.bar button{width:46px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--pri);display:grid;place-items:center}
+#go{background:var(--pri);color:var(--pi);border-color:var(--pri)}
+#mic.on{background:var(--bad);color:#fff;border-color:var(--bad)}
+#note{color:var(--bad);font-size:14px;min-height:20px}
+nav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:560px;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav button{flex:1;height:54px;background:none;border:0;border-top:3px solid transparent;color:var(--mute);font-weight:600;font-size:14px}
+nav button.on{color:var(--pri);border-top-color:var(--acc)}
+.stats{display:flex;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.stats div{flex:1;text-align:center;padding:14px 4px;border-right:1px solid var(--line)}.stats div:last-child{border:0}
+.stats b{font:700 26px Lora,Georgia,serif;display:block}
+.chart{display:flex;gap:6px}.chart>div{flex:1;text-align:center}
+.bw{height:100px;display:flex;align-items:flex-end;justify-content:center}
+.bw i{width:55%;background:var(--pri);border-radius:4px 4px 0 0;min-height:3px}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{flex:1;padding:10px 4px;background:var(--card);border:0}
+.seg button.on{background:var(--pri);color:var(--pi);font-weight:600}
+.rem{display:flex;gap:10px;align-items:center}
+.rem input{font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+.fld{width:100%;font:inherit;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);margin:6px 0 10px}
+</style></head>
+<body><div class="wrap"><header>Fluent</header><main id="app"></main></div>
+<nav><button data-v="practice">Practice</button><button data-v="learn">Grammar</button><button data-v="progress">Progress</button><button data-v="settings">Settings</button></nav>
+<script>
+const isNative=()=>!!(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform());
+const DM='gemini-flash-lite-latest';
+const gk=()=>{try{return localStorage.getItem('fluent_key')||''}catch(e){return ''}};
+const gm=()=>{try{return localStorage.getItem('fluent_model')||DM}catch(e){return DM}};
+const sampleShim={json:async p=>{
+ const k=gk();if(!k)throw{code:'nokey'};
+ let r;
+ try{r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(gm())+':generateContent?key='+encodeURIComponent(k),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:p}]}],generationConfig:{responseMimeType:'application/json',temperature:.4}})})}catch(e){throw{code:'net'}}
+ if(!r.ok)throw{code:r.status===429?'rate_limited':r.status===404?'model':(r.status===400||r.status===403)?'badkey':'error'};
+ const d=await r.json();
+ const t=d.candidates&&d.candidates[0]&&d.candidates[0].content.parts.map(x=>x.text||'').join('');
+ return JSON.parse(String(t).replace(/```json|```/g,'').trim());
+}};
+window.claude={use:async n=>n==='sample'?sampleShim:null};
+</script>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const K='fluent_v1';
+let S={level:'Beginner',streak:0,last:'',days:{},mis:{},total:0,sum:0,time:'19:00'};
+try{Object.assign(S,JSON.parse(localStorage.getItem(K)||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const dk=d=>{d=d||new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const IC={
+mic:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>',
+spk:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg>',
+go:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>'};
+const T=[
+['Introduce yourself','Hello! Let\'s start simple. Please tell me your name and a little about yourself.','Name, family, studies'],
+['Daily routine','What time do you usually wake up, and what do you do in the morning?','Habits and schedule'],
+['Ordering food','Welcome to our restaurant! What would you like to eat today?','Restaurant role-play'],
+['Job interview','Thank you for coming. Why do you want this job?','Confident answers'],
+['Talking about your day','How was your day today? Tell me what happened.','Past tense practice'],
+['Free talk','What is something you enjoy doing in your free time, and why?','Hobbies and opinions']];
+const L=[
+{t:'Present simple vs. continuous',r:'Use present simple for habits and facts (I work every day). Use present continuous for actions happening now (I am working now).',x:[['I am go to school every day.','I go to school every day.'],['She cooks now.','She is cooking now.']],p:'Tell me about your daily routine and what you are doing right now.'},
+{t:'Past simple vs. present perfect',r:'Use past simple for finished times (I visited Delhi last year). Use present perfect for experience up to now (I have visited Delhi).',x:[['I have seen him yesterday.','I saw him yesterday.'],['I didn\'t eat sushi ever.','I have never eaten sushi.']],p:'Tell me about places you have visited and what you did there.'},
+{t:'Articles: a, an, the',r:'Use a/an for one non-specific thing (a book, an apple). Use the for a specific thing both people know (the book on the table). Use no article for general plurals (I like books).',x:[['I bought a umbrella.','I bought an umbrella.'],['She is best student.','She is the best student.']],p:'Describe your room or your home. Try to use a, an and the.'},
+{t:'Prepositions: in, on, at',r:'At is for exact times and points (at 5 pm, at the door). On is for days and dates (on Monday). In is for months, years and long periods (in June, in 2026).',x:[['I wake up in 6 am.','I wake up at 6 am.'],['My exam is in Monday.','My exam is on Monday.']],p:'Tell me your weekly schedule using at, on and in.'},
+{t:'Subject–verb agreement',r:'Singular subjects take a verb with -s (he works). Plural subjects do not (they work). I and you are special: I am, you are.',x:[['He don\'t like tea.','He doesn\'t like tea.'],['My friends is here.','My friends are here.']],p:'Tell me about your family and friends and what each person does.'},
+{t:'Conditionals with if',r:'Real future: if + present, will + verb (If it rains, I will stay home). Unreal present: if + past, would + verb (If I had time, I would travel).',x:[['If I will see him, I tell him.','If I see him, I will tell him.'],['If I am rich, I would buy a car.','If I were rich, I would buy a car.']],p:'What would you do if you won a lottery? Use if sentences.'},
+{t:'Modal verbs',r:'Can shows ability, should shows advice, must shows strong need, may shows permission. After a modal, use the base verb: no to, no -s.',x:[['She can to swim.','She can swim.'],['You should studies more.','You should study more.']],p:'Give me advice for learning English. Use should and must.'},
+{t:'Asking questions',r:'Use do/does/did + subject + base verb (Where do you live?). With be and modals, swap the order (Where are you? Can you help?).',x:[['Where you live?','Where do you live?'],['What she is doing?','What is she doing?']],p:'Let\'s practice questions. Ask me three questions about my life.'}];
+
+let V='practice',C=null,sending=false,listening=false,rec=null;
+function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.95;speechSynthesis.speak(u)}catch(e){}}
+function note(m){const n=$('#note');if(n)n.textContent=m}
+function start(topic,opener){C={topic,msgs:[{r:'c',t:opener}]};V='practice';draw();speak(opener)}
+
+function draw(){
+ document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===V));
+ const a=$('#app');
+ if(V==='practice')C?chat(a):home(a);else if(V==='learn')learn(a);else if(V==='progress')prog(a);else sett(a);
+ document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>speak(b.dataset.s));
+}
+function home(a){
+ const d=S.days[dk()];const nk=!gk();
+ a.innerHTML=`<h1>Practice speaking</h1><p class="sub">${nk?'First, add your free AI key in Settings.':d?`Today you answered ${d.n} question${d.n>1?'s':''}. Keep going.`:'You haven\'t practiced today. One answer keeps your streak alive.'}</p><div class="list">${T.map((x,i)=>`<button class="row" data-t="${i}"><span><b>${x[0]}</b><small>${x[2]}</small></span><i>›</i></button>`).join('')}</div>`;
+ a.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>start(T[b.dataset.t][0],T[b.dataset.t][1]));
+}
+const fbk=f=>`<div class="fb"><div class="sc ${f.score>=80?'g':f.score>=60?'m':'w'}">${f.score}<small> / 100</small></div>${f.corrected?`<p class="cor"><span>Better:</span> ${esc(f.corrected)} <button class="sp" aria-label="Listen" data-s="${esc(f.corrected)}">${IC.spk}</button></p>`:''}${(f.mistakes||[]).map(x=>`<div class="mis"><s>${esc(x.wrong)}</s> → <b>${esc(x.right)}</b><small>${esc(x.why)}</small></div>`).join('')}${f.tip?`<p class="tip">${esc(f.tip)}</p>`:''}</div>`;
+const msg=m=>m.r==='c'?`<div class="b c">${esc(m.t)}<button class="sp" aria-label="Listen" data-s="${esc(m.t)}">${IC.spk}</button></div>`:`<div class="b u">${esc(m.t)}</div>`+(m.fb?fbk(m.fb):'');
+function chat(a){
+ a.innerHTML=`<div class="top"><button class="ghost" id="bk">‹ Topics</button><b>${esc(C.topic)}</b></div><div id="log">${C.msgs.map(msg).join('')}${sending?'<div class="b c"><small>Coach is checking your answer…</small></div>':''}</div><div id="note" role="status"></div><div class="bar"><button id="mic" aria-label="Speak">${IC.mic}</button><input id="inp" placeholder="Speak or type your answer" autocomplete="off"><button id="go" aria-label="Send">${IC.go}</button></div>`;
+ $('#bk').onclick=()=>{try{speechSynthesis.cancel()}catch(e){}C=null;draw()};
+ $('#go').onclick=send;$('#mic').onclick=mic;
+ $('#inp').onkeydown=e=>{if(e.key==='Enter')send()};
+ window.scrollTo(0,document.body.scrollHeight);
+}
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+function mic(){
+ if(isNative())return micNative();
+ if(!SR){note('Voice input isn\'t available here. Type your answer or use your keyboard\'s mic key.');return}
+ if(listening){rec.stop();return}
+ try{speechSynthesis.cancel()}catch(e){}
+ rec=new SR();rec.lang='en-US';rec.interimResults=true;rec.continuous=false;note('');
+ rec.onstart=()=>{listening=true;const m=$('#mic');if(m)m.classList.add('on')};
+ rec.onresult=e=>{let s='';for(const r of e.results)s+=r[0].transcript;const i=$('#inp');if(i)i.value=s};
+ rec.onerror=e=>note(e.error==='not-allowed'||e.error==='service-not-allowed'?'Microphone is blocked here. Type your answer or use your keyboard\'s mic key.':'I didn\'t catch that. Tap the mic and try again.');
+ rec.onend=()=>{listening=false;const m=$('#mic');if(m)m.classList.remove('on');const i=$('#inp');if(i&&i.value.trim()&&!sending)send()};
+ try{rec.start()}catch(e){}
+}
+async function micNative(){
+ const P=window.Capacitor&&Capacitor.Plugins.SpeechRecognition;
+ if(!P){note('Voice plugin is missing. Type your answer instead.');return}
+ try{
+  try{await (P.requestPermissions||P.requestPermission).call(P)}catch(e){}
+  try{speechSynthesis.cancel()}catch(e){}
+  const r=await P.start({language:'en-US',maxResults:1,popup:true});
+  const t=r&&r.matches&&r.matches[0];
+  if(t){const i=$('#inp');if(i){i.value=t;send()}}
+ }catch(e){note('I didn\'t catch that. Tap the mic and try again.')}
+}
+async function setReminder(){
+ const N=window.Capacitor&&Capacitor.Plugins.LocalNotifications,b=$('#cal');
+ if(!N){b.textContent='Reminders unavailable';return}
+ try{
+  const p=await N.requestPermissions();
+  if(p.display!=='granted'){b.textContent='Allow notifications first';return}
+  await N.cancel({notifications:[{id:1}]});
+  const [h,m]=S.time.split(':').map(Number);
+  await N.schedule({notifications:[{id:1,title:'Time to practice',body:'Answer a few questions with your coach.',schedule:{on:{hour:h||0,minute:m||0},allowWhileIdle:true}}]});
+  b.textContent='Reminder set for '+S.time;
+ }catch(e){b.textContent='Couldn\'t set reminder'}
+}
+function record(f){
+ const t=dk(),d=S.days[t]||(S.days[t]={n:0,sum:0});
+ d.n++;d.sum+=f.score;S.total++;S.sum+=f.score;
+ if(S.last!==t){const y=new Date();y.setDate(y.getDate()-1);S.streak=S.last===dk(y)?S.streak+1:1;S.last=t}
+ (f.mistakes||[]).forEach(x=>{const k=(x.wrong+' → '+x.right).slice(0,80);S.mis[k]=(S.mis[k]||0)+1});
+ save();
+}
+async function send(){
+ const inp=$('#inp');const t=inp?inp.value.trim():'';
+ if(!t||sending)return;
+ C.msgs.push({r:'u',t});const um=C.msgs[C.msgs.length-1];sending=true;draw();
+ try{
+  const sm=window.claude?await claude.use('sample'):null;
+  if(!sm)throw{code:'none'};
+  const hist=C.msgs.slice(-9,-1).map(m=>(m.r==='u'?'Learner: ':'Coach: ')+m.t).join('\n');
+  const f=await sm.json(`You are a warm English speaking coach for a ${S.level} learner. Topic: ${C.topic}.\nConversation so far:\n${hist}\nThe learner just said (voice transcript, ignore capitalization and punctuation): "${t}"\nReturn ONLY JSON: {"corrected":"natural corrected version of what they said","score":0-100 for grammar, vocabulary and naturalness,"mistakes":[{"wrong":"their words","right":"the fix","why":"one short, simple reason"}],"tip":"one short tip or a more natural phrase","reply":"1-2 friendly sentences replying to them, ending with a follow-up question"}\nUse simple English suited to the level. If nothing is wrong, mistakes is [] and tip is praise.`,{cache:false});
+  f.score=Math.max(0,Math.min(100,Math.round(+f.score||0)));
+  um.fb=f;C.msgs.push({r:'c',t:f.reply});record(f);sending=false;draw();speak(f.reply);
+ }catch(e){
+  sending=false;C.msgs.pop();draw();$('#inp').value=t;
+  note(e&&e.code==='nokey'?'Add your free AI key in Settings first.':e&&e.code==='badkey'?'Your AI key was rejected. Check it in Settings.':e&&e.code==='model'?'Model name not found. Check it in Settings.':e&&e.code==='rate_limited'?'Too many requests. Wait a moment, then send again.':'The coach isn\'t available right now. Check your connection and send again.');
+ }
+}
+function learn(a){
+ a.innerHTML=`<h1>Grammar</h1><p class="sub">Short rules with examples. Then say them aloud.</p>`+L.map((l,i)=>`<details><summary>${l.t}</summary><p>${l.r}</p>${l.x.map(x=>`<div class="mis"><s>${x[0]}</s> → <b>${x[1]}</b></div>`).join('')}<p><button class="btn" data-l="${i}">Practice this</button></p></details>`).join('');
+ a.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>{const l=L[b.dataset.l];start(l.t,l.p)});
+}
+function prog(a){
+ const y=new Date();y.setDate(y.getDate()-1);
+ const live=(S.last===dk()||S.last===dk(y))?S.streak:0;
+ const avg=S.total?Math.round(S.sum/S.total):0;
+ const days=[...Array(7)].map((_,i)=>{const d=new Date();d.setDate(d.getDate()-6+i);const r=S.days[dk(d)];return{l:d.toLocaleDateString('en',{weekday:'narrow'}),n:r?r.n:0}});
+ const mx=Math.max(3,...days.map(x=>x.n));
+ const ms=Object.entries(S.mis).sort((p,q)=>q[1]-p[1]).slice(0,6);
+ a.innerHTML=`<h1>Your progress</h1><div class="stats"><div><b>${live}</b><small>day streak</small></div><div><b>${S.total}</b><small>answers</small></div><div><b>${avg}</b><small>avg score</small></div></div><h2>Answers in the last 7 days</h2><div class="chart">${days.map(x=>`<div><div class="bw"><i style="height:${Math.round(x.n/mx*100)}%"></i></div><small>${x.l}</small></div>`).join('')}</div><h2>Mistakes to fix</h2>${ms.length?ms.map(([k,n])=>{const [w,r]=k.split(' → ');return`<div class="mis"><s>${esc(w)}</s> → <b>${esc(r)}</b><small>Repeated ${n} time${n>1?'s':''}</small></div>`}).join(''):'<p class="sub">Nothing yet. Answer a question and your common mistakes will appear here.</p>'}`;
+}
+function calUrl(){
+ const [h,m]=S.time.split(':').map(Number);
+ const s=new Date();s.setDate(s.getDate()+1);s.setHours(h||0,m||0,0,0);
+ const e=new Date(s.getTime()+15*6e4);
+ const f=d=>dk(d).replace(/-/g,'')+'T'+String(d.getHours()).padStart(2,'0')+String(d.getMinutes()).padStart(2,'0')+'00';
+ return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('English speaking practice')+'&details='+encodeURIComponent('Answer a few questions with your coach.')+'&dates='+f(s)+'/'+f(e)+'&recur='+encodeURIComponent('RRULE:FREQ=DAILY');
+}
+function sett(a){
+ a.innerHTML=`<h1>Settings</h1><h2>Your level</h2><div class="seg">${['Beginner','Intermediate','Advanced'].map(l=>`<button data-lv="${l}" class="${S.level===l?'on':''}">${l}</button>`).join('')}</div><h2>Daily reminder</h2><p class="sub">Pick a time, then set a repeating daily alert.</p><div class="rem"><input type="time" id="tm" value="${S.time}" aria-label="Reminder time"><a class="btn" id="cal" target="_blank" rel="noopener">Add to calendar</a></div><h2>Free AI key</h2><p class="sub">Get a free key at aistudio.google.com/apikey and paste it here. It stays on this phone.</p><input class="fld" id="key" type="password" placeholder="Paste key" value="${esc(gk())}" aria-label="AI key"><small>Model name (leave as is)</small><input class="fld" id="mdl" value="${esc(gm())}" aria-label="Model name"><h2>Data</h2><button class="btn ghostb" id="rs">Reset progress</button><p class="sub" style="margin-top:10px">Progress is saved on this device only.</p>`;
+ $('#cal').href=calUrl();if(isNative()){$('#cal').textContent='Set daily reminder';$('#cal').onclick=e=>{e.preventDefault();setReminder()}}
+ $('#tm').onchange=e=>{S.time=e.target.value||'19:00';save();$('#cal').href=calUrl()};
+ a.querySelectorAll('[data-lv]').forEach(b=>b.onclick=()=>{S.level=b.dataset.lv;save();draw()});
+ $('#key').onchange=e=>{try{localStorage.setItem('fluent_key',e.target.value.trim())}catch(x){}};
+ $('#mdl').onchange=e=>{try{localStorage.setItem('fluent_model',e.target.value.trim()||DM)}catch(x){}};
+ let armed=false;$('#rs').onclick=e=>{if(!armed){armed=true;e.target.textContent='Tap again to erase all progress';return}S={level:S.level,streak:0,last:'',days:{},mis:{},total:0,sum:0,time:S.time};save();draw()};
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{V=b.dataset.v;draw();window.scrollTo(0,0)});
+draw();
+</script></body></html>
